@@ -112,7 +112,6 @@ def localmin(f, a, b, x, t, eps=None):
     Fibonacci search. If `f` has a continuous second derivative which is
     positive at the minimum (not at `a` or `b`) then, ignoring rounding errors,
     convergence is superlinear, and usually the order is at least 1.3247...
-    
 
     Parameters
     ----------
