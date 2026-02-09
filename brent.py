@@ -1,9 +1,16 @@
 import math
 import sys
+from collections.abc import Callable
 
 macheps = sys.float_info.epsilon
 
-def zero(f, a, b, t, eps=None):
+def zero(
+    f: Callable[[float], float],
+    a: float,
+    b: float,
+    t: float,
+    eps: float | None = None
+) -> float:
     """
     Brent's method for root-finding, a direct translation of the ALGOL 60
     procedure from Richard P. Brent's book "Algorithms for Minimization Without
@@ -30,7 +37,8 @@ def zero(f, a, b, t, eps=None):
 
     Returns
     -------
-    x: Estimated value of the root.
+    x: float
+        Estimated value of the root.
     """
     if eps is None:
         eps = macheps
@@ -92,7 +100,14 @@ def zero(f, a, b, t, eps=None):
 
     return b
 
-def localmin(f, a, b, x, t, eps=None):
+def localmin(
+    f: Callable[[float], float],
+    a: float,
+    b: float,
+    x: float,
+    t: float,
+    eps: float | None = None,
+) -> float:
     """
     Brent's method for minimization, a direct translation of the ALGOL 60
     procedure from Richard P. Brent's book "Algorithms for Minimization Without
