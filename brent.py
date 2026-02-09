@@ -1,6 +1,7 @@
-import numpy as np
+import math
+import sys
 
-macheps = np.finfo(np.float64).eps
+macheps = sys.float_info.epsilon
 
 def zero(f, a, b, t, eps=None):
     """
@@ -137,9 +138,9 @@ def localmin(f, a, b, x, t, eps=None):
         Estimated value of the argument at which `f` attains its minimum.
     """
     if eps is None:
-        eps = np.sqrt(macheps)
+        eps = math.sqrt(macheps)
 
-    c = (3 - np.sqrt(5))/2
+    c = (3 - math.sqrt(5))/2
     x = a + c*(b - a)
     e = 0
     fx = f(x)
