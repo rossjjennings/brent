@@ -19,7 +19,7 @@ C     SEE PROCEDURE ZERO, SECTION 4.6, FOR COMMENTS ETC.
       FC = FA
    30 TOL = 2.0*MACHEP*ABS(SB) + T
       M = 0.5*(C - SB)
-      IF ((ABS(M).LE.TOL).OR.(FB.EQ.0.0) GO TO 140
+      IF ((ABS(M).LE.TOL).OR.(FB.EQ.0.0)) GO TO 140
       IF ((ABS(E).GE.TOL).AND.(ABS(FA).GT.ABS(FB))) GO TO 40
       E = M
       D = E
@@ -130,7 +130,7 @@ C     SEE PROCEDURE LOCALMIN, SECTION 5.8, FOR COMMENTS ETC.
       SA = U
       GO TO 170
   160 SB = U
-  170 IF (FU.GT.FW).AND.(W.NE.X)) GO TO 180
+  170 IF ((FU.GT.FW).AND.(W.NE.X)) GO TO 180
       V = W
       FV = FW
       W = U
