@@ -3,8 +3,9 @@ import numpy as np
 def zero(f, a, b, t, eps=None):
     """
     Brent's method for root-finding, a direct translation of the ALGOL 60
-    routine from Brent (1973). The original description from Brent's book
-    is reproduced below.
+    routine from Richard P. Brent's book "Algorithms for Minimization Without
+    Derivatives" (Prentice-Hall, 1973). The original description from Brent's
+    book is reproduced below.
 
     Procedure `zero` returns a zero `x` of the function `f` in the interval
     [a, b], to within a tolerance `6*eps*abs(x) + 2*t`, where `eps` is the
@@ -91,8 +92,9 @@ def zero(f, a, b, t, eps=None):
 def localmin(f, a, b, x, t, eps=None):
     """
     Brent's method for minimization, a direct translation of the ALGOL 60
-    routine from Brent (1973). The original description from Brent's book
-    is reproduced below.
+    routine from Richard P. Brent's book "Algorithms for Minimization Without
+    Derivatives" (Prentice-Hall, 1973). The original description from Brent's
+    book is reproduced below.
 
     If the function `f` is defined on the interval (a, b), then `localmin`
     finds an approximation `x` to the point at which `f` attains its maximum
