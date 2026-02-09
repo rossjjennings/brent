@@ -3,7 +3,7 @@ import numpy as np
 def zero(f, a, b, t, eps=None):
     """
     Brent's method for root-finding, a direct translation of the ALGOL 60
-    routine from Richard P. Brent's book "Algorithms for Minimization Without
+    procedure from Richard P. Brent's book "Algorithms for Minimization Without
     Derivatives" (Prentice-Hall, 1973). The original description from Brent's
     book is reproduced below.
 
@@ -92,7 +92,7 @@ def zero(f, a, b, t, eps=None):
 def localmin(f, a, b, x, t, eps=None):
     """
     Brent's method for minimization, a direct translation of the ALGOL 60
-    routine from Richard P. Brent's book "Algorithms for Minimization Without
+    procedure from Richard P. Brent's book "Algorithms for Minimization Without
     Derivatives" (Prentice-Hall, 1973). The original description from Brent's
     book is reproduced below.
 
