@@ -1,5 +1,7 @@
 import numpy as np
 
+macheps = np.finfo(np.float64).eps
+
 def zero(f, a, b, t, eps=None):
     """
     Brent's method for root-finding, a direct translation of the ALGOL 60
@@ -30,7 +32,7 @@ def zero(f, a, b, t, eps=None):
     x: Estimated value of the root.
     """
     if eps is None:
-        eps = np.finfo(a).eps
+        eps = macheps
 
     fa = f(a)
     fb = f(b)
@@ -87,7 +89,7 @@ def zero(f, a, b, t, eps=None):
             d = b - a
             e = d
 
-    return zero
+    return b
 
 def localmin(f, a, b, x, t, eps=None):
     """
@@ -135,7 +137,7 @@ def localmin(f, a, b, x, t, eps=None):
         Estimated value of the argument at which `f` attains its minimum.
     """
     if eps is None:
-        eps = np.sqrt(np.finfo(x).eps)
+        eps = np.sqrt(macheps)
 
     c = (3 - np.sqrt(5))/2
     x = a + c*(b - a)
