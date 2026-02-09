@@ -34,21 +34,22 @@ def zero(f, a, b, t, eps=None):
     fa = f(a)
     fb = f(b)
 
-    # label: int
     c, fc = a, fa
     d = b - a
     e = d
 
-    # label: ext
-    if abs(fc) < abs(fb):
-        a, fa = b, fb
-        b, fb = c, fc
-        c, fc = a, fa
+    while True:
+        if abs(fc) < abs(fb):
+            a, fa = b, fb
+            b, fb = c, fc
+            c, fc = a, fa
 
-    tol = 2*eps*abs(b) + t
-    m = 0.5*(c - b)
+        tol = 2*eps*abs(b) + t
+        m = 0.5*(c - b)
 
-    if abs(m) > tol and fb != 0:
+        if abs(m) <= tol or fb == 0:
+            break
+
         # See if a bisection is forced
         if abs(e) < tol and abs(fa) <= abs(fb):
             e = m
@@ -79,12 +80,11 @@ def zero(f, a, b, t, eps=None):
         a, fa = b, fb
         b += d if abs(d) > tol else (tol if m > 0 else -tol)
         fb = f(b)
+
         if (fb > 0) == (fc > 0):
-            # go to: int
-            pass
-        else:
-            # go to: ext
-            pass
+            c, fc = a, fa
+            d = b - a
+            e = d
 
     return zero
 
